@@ -124,6 +124,11 @@ func main() {
 	fmt.Println()
 	fmt.Println()
 	//Ping 🎯API
+	r.GET("/", func(c *gin.Context) {
+    		c.JSON(http.StatusOK, gin.H{
+        		"message": "Greens Tech Backend Running",
+    		})
+	})
 	r.GET("/ping", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"message": "pong from Greens Tech Service",

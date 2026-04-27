@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+
+  backend:
+    container_name: greens-backend
+    build:
+      context: ./greenstech-Service
+      dockerfile: dockerfile
+    ports:
+      - "8080:8083"
+    restart: always
+
+  frontend:
+    container_name: greens-frontend
+    build:
+      context: ./greenstech-UI
+      dockerfile: dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: always

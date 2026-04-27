@@ -11,7 +11,7 @@ interface StudentCourseProps {
 const StudentCourse: React.FC<StudentCourseProps> = () => {
     const navigate = useNavigate();
     const location = useLocation().state as getStudentCourseData;
-    const [loading, setLoading] = useState(false);
+    const [loading] = useState(false);
 
     return (
         <div className="px-5 pt-3 flex flex-col gap-2">

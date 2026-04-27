@@ -1,4 +1,4 @@
-import { decrypt, encrypt } from "@/lib/Helper";
+import { decrypt } from "@/lib/Helper";
 import axios from "axios";
 import { tokenService } from "./tokenService";
 import type { getStudentCourseResponse } from "@/Interfaces/StudentDashboardInterface";

@@ -1,0 +1,30 @@
+FROM golang:1.24.2-alpine AS builder
+
+RUN apk add --no-cache git
+
+WORKDIR /app
+
+COPY go.mod go.sum ./
+
+RUN go mod download
+
+COPY . .
+
+RUN go mod tidy
+
+RUN go build -o greens-tech-service .
+
+FROM alpine:latest
+
+RUN apk add --no-cache ca-certificates
+
+WORKDIR /root/
+
+COPY --from=builder /app/greens-tech-service .
+
+COPY .env .
+COPY Assets ./Assets
+
+EXPOSE 8080
+
+CMD ["./greens-tech-service"]

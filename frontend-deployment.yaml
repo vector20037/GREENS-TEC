@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: greens-frontend
+  namespace: greens
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: greens-frontend
+
+  template:
+    metadata:
+      labels:
+        app: greens-frontend
+
+    spec:
+      containers:
+      - name: frontend
+        image: vinothkumar2003/greenstech-frontend:v1
+        imagePullPolicy: Always
+
+        ports:
+        - containerPort: 80

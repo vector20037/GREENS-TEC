@@ -3,10 +3,13 @@ kind: Service
 metadata:
   name: backend-service
   namespace: greens
+
 spec:
   type: ClusterIP
+
   selector:
     app: greens-backend
+
   ports:
   - port: 80
-    targetPort: 8083
+    targetPort: 8080

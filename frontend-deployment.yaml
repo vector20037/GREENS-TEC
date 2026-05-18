@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: vinothkumar2003/greenstech-frontend:v1
+        image: vinothkumar2003/greens-tec-frontend:v1
         imagePullPolicy: Always
 
         ports:
